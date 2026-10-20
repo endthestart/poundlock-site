@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.sources/
+# Generated from the product repositories by scripts/sync-docs.mjs.
+src/content/docs/poundlock/
+src/content/docs/toolkit/
+src/content/docs/roadmap.md

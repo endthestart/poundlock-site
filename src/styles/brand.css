@@ -1,0 +1,11 @@
+/* Poundlock's brand green (assets/brand/poundlock.svg) as the accent. */
+:root {
+  --sl-color-accent-low: #00382a;
+  --sl-color-accent: #01a982;
+  --sl-color-accent-high: #a6f0da;
+}
+:root[data-theme="light"] {
+  --sl-color-accent-low: #c5f3e5;
+  --sl-color-accent: #017a5e;
+  --sl-color-accent-high: #00382a;
+}

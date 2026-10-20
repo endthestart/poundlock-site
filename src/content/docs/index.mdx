@@ -1,0 +1,72 @@
+---
+title: Poundlock
+description: One OpenAI-compatible endpoint for the model servers on your own machines.
+template: splash
+hero:
+  tagline: Run models on your own machines and give every app one place to reach them.
+  actions:
+    - text: Get started
+      link: /poundlock-site/poundlock/getting-started/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/endthestart/poundlock
+      icon: external
+      variant: minimal
+---
+
+## The problem it solves
+
+Say you have a couple of machines that can run models: a desktop with a decent GPU,
+maybe a Mac with a lot of memory. Your editor wants a small, fast model for
+completions. A chat app wants a bigger one. A coding agent will happily keep a GPU
+busy for an hour. Each of them needs an address and a key, and when two of them reach
+for the same GPU at once, one of them gets an error.
+
+Poundlock sits in front of those machines and gives everything one OpenAI-compatible
+address. Each app gets its own token, with only the permissions it needs. If a model
+is busy, the request waits its turn instead of failing. If the machine is asleep,
+Poundlock wakes it up first.
+
+It can also take a longer coding job, run it with a local agent in a locked-down
+container, and give you back a patch along with the results of the checks you asked
+for. You decide whether to apply it.
+
+## Who it's for
+
+One person or a small team that owns its hardware and would rather keep prompts and
+code on it. Your model servers stay yours: Poundlock talks to llama.cpp, Ollama, vLLM
+or anything else that speaks the OpenAI API, and it leaves model downloads and GPU
+drivers to you.
+
+It's not a hosted service, and it's not built for strangers sharing one install. It
+won't place models across a cluster for you either. If that's what you need, the
+[comparison](/poundlock-site/compare/) points to projects that do it well.
+
+## What you need
+
+- A Linux x86_64 machine with Docker for the server.
+- At least one model server you already run.
+- For machines that sleep, Wake-on-LAN. The optional node agent is supported on Linux;
+  macOS and ARM nodes work but are still a preview.
+
+The [getting started guide](/poundlock-site/poundlock/getting-started/) goes from
+hardware to a first working request.
+
+## The other pieces
+
+Poundlock is one of three projects that work together, and each one stands on its
+own.
+
+- **[Toolkit](/poundlock-site/toolkit/)** tells you which models, runtimes and settings
+  actually hold up on your hardware, before you trust them with real work.
+- **Dispatch** is a desktop and terminal app that plans a piece of work and hands it to
+  local models through Poundlock. It's being prepared for release.
+
+[How they fit together](/poundlock-site/how-it-fits/) has the longer version.
+
+## Where things stand
+
+This is 0.3.0, the first public release. One person maintains it, on a best-effort
+basis. Issues and pull requests are welcome, and security reports go through
+[SECURITY.md](https://github.com/endthestart/poundlock/blob/main/SECURITY.md). What's
+planned next is on the [roadmap](/poundlock-site/roadmap/).
