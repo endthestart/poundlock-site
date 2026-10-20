@@ -2,7 +2,8 @@
 
 The source of [endthestart.github.io/poundlock-site](https://endthestart.github.io/poundlock-site/):
 a front page, a few pages about how the projects fit together, and the guides from
-[Poundlock](https://github.com/endthestart/poundlock) and
+[Poundlock](https://github.com/endthestart/poundlock),
+[Poundlock Dispatch](https://github.com/endthestart/poundlock-dispatch) and
 [Poundlock Toolkit](https://github.com/endthestart/poundlock-toolkit).
 
 The guides live in those repositories, not here. `scripts/sync-docs.mjs` copies them
@@ -12,7 +13,7 @@ branch; a GitHub Actions workflow that rebuilds it daily will replace that.
 
 ```sh
 npm ci
-POUNDLOCK_SRC=../poundlock TOOLKIT_SRC=../poundlock-toolkit npm run dev
+POUNDLOCK_SRC=../poundlock DISPATCH_SRC=../poundlock-dispatch TOOLKIT_SRC=../poundlock-toolkit npm run dev
 ```
 
 Built with [Astro Starlight](https://starlight.astro.build). Apache-2.0.

@@ -1,7 +1,8 @@
 // Copy the product repositories' Markdown into the site, so each guide has one
 // source: the repository it documents. Run from the site root:
 //
-//   POUNDLOCK_SRC=../poundlock TOOLKIT_SRC=../poundlock-toolkit node scripts/sync-docs.mjs
+//   POUNDLOCK_SRC=../poundlock DISPATCH_SRC=../poundlock-dispatch TOOLKIT_SRC=../poundlock-toolkit \
+//     node scripts/sync-docs.mjs
 //
 // Without those variables it reads .sources/<repo>, where the deploy workflow
 // checks them out. Each page gets its title from its first heading; links to other
@@ -28,6 +29,19 @@ const products = [
       ["docs/node-update-signing.md", "poundlock/node-update-signing.md", { order: 8 }],
       ["CHANGELOG.md", "poundlock/changelog.md", { title: "Poundlock changelog", label: "Changelog", order: 9 }],
       ["ROADMAP.md", "roadmap.md", { title: "Roadmap" }],
+    ],
+  },
+  {
+    repo: "poundlock-dispatch",
+    root: process.env.DISPATCH_SRC || ".sources/poundlock-dispatch",
+    pages: [
+      ["README.md", "dispatch/index.md", { title: "Poundlock Dispatch", label: "Overview", order: 0 }],
+      ["docs/INSTALL.md", "dispatch/install.md", { order: 1 }],
+      ["docs/USER-GUIDE.md", "dispatch/user-guide.md", { order: 2 }],
+      ["docs/GLOSSARY.md", "dispatch/glossary.md", { order: 3 }],
+      ["docs/pi-compatibility.md", "dispatch/pi-compatibility.md", { order: 4 }],
+      ["docs/api-contract.md", "dispatch/api-contract.md", { order: 5 }],
+      ["CHANGELOG.md", "dispatch/changelog.md", { title: "Dispatch changelog", label: "Changelog", order: 9 }],
     ],
   },
   {
@@ -112,7 +126,7 @@ function convert(text, product, source, meta) {
   return front.join("\n") + out.join("\n").replace(/^\n+/, "");
 }
 
-for (const dir of ["poundlock", "toolkit"]) rmSync(join(OUT, dir), { recursive: true, force: true });
+for (const dir of ["poundlock", "dispatch", "toolkit"]) rmSync(join(OUT, dir), { recursive: true, force: true });
 rmSync(join(OUT, "roadmap.md"), { force: true });
 for (const product of products) {
   if (!existsSync(product.root)) throw new Error(`${product.repo} not found at ${product.root}`);
@@ -124,5 +138,5 @@ for (const product of products) {
     writeFileSync(to, convert(readFileSync(from, "utf8"), product, source, meta));
   }
 }
-const count = readdirSync(join(OUT, "poundlock")).length + readdirSync(join(OUT, "toolkit")).length + 1;
+const count = ["poundlock", "dispatch", "toolkit"].reduce((sum, dir) => sum + readdirSync(join(OUT, dir)).length, 1);
 console.log(`synced ${count} pages`);

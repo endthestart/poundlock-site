@@ -25,7 +25,7 @@ All of that came together into the servers and apps you see here.
 
 The big thing, beyond using my own infrastructure, is having a process for getting
 quality output, and making sure jobs keep running and correct themselves. That's why
-[Dispatch](/poundlock-site/how-it-fits/) splits development between a manager, a
+[Dispatch](/poundlock-site/dispatch/) splits development between a manager, a
 planner and workers. Tools like gnhf work great, but they trust themselves too much, and
 they don't have error correction.
 

@@ -24,6 +24,7 @@ export default defineConfig({
           ],
         },
         { label: "Poundlock", items: [{ autogenerate: { directory: "poundlock" } }] },
+        { label: "Dispatch", items: [{ autogenerate: { directory: "dispatch" } }] },
         { label: "Toolkit", items: [{ autogenerate: { directory: "toolkit" } }] },
         { slug: "roadmap" },
       ],
