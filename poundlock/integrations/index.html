@@ -1,0 +1,447 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-g5ptsecz"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Editors and agent integrations | Poundlock</title><link rel="canonical" href="https://endthestart.github.io/poundlock-site/poundlock/integrations/"/><link rel="sitemap" href="/poundlock-site/sitemap-index.xml"/><link rel="shortcut icon" href="/poundlock-site/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.3.6"/><meta name="generator" content="Starlight v0.42.5"/><meta property="og:title" content="Editors and agent integrations"/><meta property="og:type" content="article"/><meta property="og:url" content="https://endthestart.github.io/poundlock-site/poundlock/integrations/"/><meta property="og:locale" content="en"/><meta property="og:description" content="One OpenAI-compatible endpoint for the model servers on your own machines, plus the tools around it."/><meta property="og:site_name" content="Poundlock"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="One OpenAI-compatible endpoint for the model servers on your own machines, plus the tools around it."/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/poundlock-site/_astro/print.ehPL0gv-.css" media="print"><link rel="stylesheet" href="/poundlock-site/_astro/common.C3kBMSeM.css"><script type="module" src="/poundlock-site/_astro/page.cNngjUgL.js"></script></head><body class="astro-g5ptsecz"><a class="sl-skip-link astro-qb7clj6f" href="#_top">Skip to content</a><div class="page sl-flex astro-yntsjkba"><header class="header astro-yntsjkba"><div class="header astro-by6fddyj"><div class="title-wrapper sl-flex astro-by6fddyj"><a href="/poundlock-site/" class="site-title sl-flex astro-6rvad3va"><img class="astro-6rvad3va" alt src="/poundlock-site/_astro/poundlock.BZ_FV1Zg.svg" width="512" height="512"><span class="astro-6rvad3va" translate="no">Poundlock</span></a></div><div class="sl-flex print:hidden astro-by6fddyj"><site-search class="astro-by6fddyj astro-b5kgnn7o" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-b5kgnn7o"><svg aria-hidden="true" class="astro-b5kgnn7o astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block astro-b5kgnn7o" aria-hidden="true">Search</span><kbd class="sl-hidden md:sl-flex astro-b5kgnn7o" style="display: none;"><kbd class="astro-b5kgnn7o">Ctrl</kbd><kbd class="astro-b5kgnn7o">K</kbd></kbd></button><dialog style="padding:0" aria-label="Search" class="astro-b5kgnn7o"><div class="dialog-frame sl-flex astro-b5kgnn7o"><button data-close-modal class="sl-flex md:sl-hidden astro-b5kgnn7o">Cancel</button><div class="search-container astro-b5kgnn7o"><div id="starlight__search" class="astro-b5kgnn7o"></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/poundlock-site/_astro/Search.astro_astro_type_script_index_0_lang.B3hqicMp.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group astro-by6fddyj"><div class="sl-flex social-icons astro-by6fddyj"><a href="https://github.com/endthestart/poundlock" rel="me" class="sl-flex astro-n2mnl6yq"><span class="sr-only astro-n2mnl6yq">GitHub</span><svg aria-hidden="true" class="astro-n2mnl6yq astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-2z5xp7gb"><span class="sr-only astro-2z5xp7gb">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-2z5xp7gb"><option value="dark" class="astro-2z5xp7gb">Dark</option><option value="light" class="astro-2z5xp7gb">Light</option><option value="auto" selected class="astro-2z5xp7gb">Auto</option></select><svg aria-hidden="true" class="icon caret astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden astro-yntsjkba" aria-label="Main"><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden astro-r2osgdlg"><svg aria-hidden="true" class="open-menu astro-r2osgdlg astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg aria-hidden="true" class="close-menu astro-r2osgdlg astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only astro-r2osgdlg">Menu</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane astro-yntsjkba"><div class="sidebar-content sl-flex astro-yntsjkba"><sl-sidebar-state-persist data-hash="0v85vim" class="astro-ipdry5cl"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level astro-rmhv4bp6"><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Start here</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/poundlock-site/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">What this is</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/why/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Why I built this</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/how-it-fits/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">How the pieces fit</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/compare/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">How it compares</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Poundlock</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Overview</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/getting-started/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">From hardware to your first project</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/machines/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Inference machines</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/integrations/" aria-current="page" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Editors and agent integrations</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/jobs/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Submit a durable job</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/litellm/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Connect an existing LiteLLM gateway</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/operations/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Installation and operations</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/linux-node/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Install a Linux node</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/node-update-signing/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Node update signing</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/poundlock/changelog/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Changelog</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Dispatch</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Overview</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/install/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Install, upgrade and remove</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/user-guide/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Using Poundlock Dispatch</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/glossary/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Poundlock Dispatch glossary</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/pi-compatibility/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Pi compatibility</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/api-contract/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Poundlock API contract</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/dispatch/changelog/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Changelog</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Toolkit</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Overview</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/method/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">What to test and how to score it</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/targets/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Local and SSH targets</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/standalone/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Standalone isolated CPU and Pi recipe</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/support/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Support matrix</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/operations/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Recovery, retention and removal</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/methodology/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Evaluation methodology</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/tool-schema/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Standalone tool-call schema qualification</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/spec/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Toolkit specification</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/source/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Source provenance</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/field-notes/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Field notes: what real long-run use taught</span></a></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/toolkit/changelog/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Changelog</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><a href="/poundlock-site/roadmap/" class="large astro-rmhv4bp6"><span class="astro-rmhv4bp6">Roadmap</span></a></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex astro-p4azlveh"><div class="social-icons astro-p4azlveh"><a href="https://github.com/endthestart/poundlock" rel="me" class="sl-flex astro-n2mnl6yq"><span class="sr-only astro-n2mnl6yq">GitHub</span><svg aria-hidden="true" class="astro-n2mnl6yq astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-2z5xp7gb"><span class="sr-only astro-2z5xp7gb">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-2z5xp7gb"><option value="dark" class="astro-2z5xp7gb">Dark</option><option value="light" class="astro-2z5xp7gb">Light</option><option value="auto" selected class="astro-2z5xp7gb">Auto</option></select><svg aria-hidden="true" class="icon caret astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script></div></div></div></sl-sidebar-pane></nav><div class="main-frame astro-yntsjkba"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex astro-lrzkfocr"><aside class="right-sidebar-container print:hidden astro-lrzkfocr"><div class="right-sidebar astro-lrzkfocr"><div class="lg:sl-hidden astro-qok35upx"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-66cqc7ze"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-66cqc7ze"><details id="starlight__mobile-toc" class="astro-66cqc7ze"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-66cqc7ze"><span class="toggle sl-flex astro-66cqc7ze">On this page<svg aria-hidden="true" class="caret astro-66cqc7ze astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-66cqc7ze"></span></summary><div class="dropdown astro-66cqc7ze"><ul class="isMobile astro-jugkfwgx" style="--depth: 0;"><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#_top" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overview</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#openai-compatible-clients" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">OpenAI-compatible clients</span></a><ul class="isMobile astro-jugkfwgx" style="--depth: 1;"><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#when-a-model-is-busy" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">When a model is busy</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#inference-destination-and-client-compatibility" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Inference destination and client compatibility</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#thinking-default" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Thinking default</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#capability-evidence" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Capability evidence</span></a></li></ul></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#directing-durable-coding-work" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Directing durable coding work</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#optional-acp-adapter" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Optional ACP adapter</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#models-and-execution-profiles" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Models and execution profiles</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/poundlock-site/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-qok35upx"><div class="sl-container astro-qok35upx"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-jugkfwgx" style="--depth: 0;"><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#_top" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overview</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#openai-compatible-clients" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">OpenAI-compatible clients</span></a><ul class="astro-jugkfwgx" style="--depth: 1;"><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#when-a-model-is-busy" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">When a model is busy</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#inference-destination-and-client-compatibility" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Inference destination and client compatibility</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#thinking-default" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Thinking default</span></a></li><li style="--depth: 1;" class="astro-jugkfwgx"><a href="#capability-evidence" style="--depth: 1;" class="astro-jugkfwgx"><span style="--depth: 1;" class="astro-jugkfwgx">Capability evidence</span></a></li></ul></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#directing-durable-coding-work" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Directing durable coding work</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#optional-acp-adapter" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Optional ACP adapter</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#models-and-execution-profiles" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Models and execution profiles</span></a></li></ul></nav></starlight-toc><script type="module" src="/poundlock-site/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane astro-lrzkfocr"><main data-pagefind-body class="astro-g5ptsecz" lang="en" dir="ltr"><div class="content-panel astro-a7po4psb"><div class="sl-container astro-a7po4psb"><h1 id="_top" class="astro-bebwqqxs">Editors and agent integrations</h1></div></div><div class="content-panel astro-a7po4psb"><div class="sl-container astro-a7po4psb"><div class="sl-markdown-content"><p>Create a named application token in Access for each integration. Give it only the
+permissions it needs. The administrator token is for the operator console and administration.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="openai-compatible-clients">OpenAI-compatible clients</h2><a class="sl-anchor-link" href="#openai-compatible-clients"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “OpenAI-compatible clients”</span></a></div>
+<p>Point the client to your controller URL plus <code dir="auto">/v1</code>, use its application token as
+the API key, and select a model profile name. Aliases are optional names for the
+same profile. Chat uses <code dir="auto">/v1/chat/completions</code>; fast completion uses
+<code dir="auto">/v1/completions</code>. <code dir="auto">/v1/models</code> lists profile names and their configured limits.
+<code dir="auto">poundlock.uses</code> says what a profile is meant for (<code dir="auto">interactive</code>, <code dir="auto">completion</code>,
+<code dir="auto">durable</code>); clients choose by it, but it does not restrict which requests the
+relay answers. Token permissions and the profile’s data destination do.</p>
+<p>Send the <strong>model name</strong> exactly as <code dir="auto">/v1/models</code> lists it in <code dir="auto">id</code>. The machine’s
+own string for the same weights is the <strong>server model ID</strong>
+(<code dir="auto">poundlock.upstream_model</code>). It is never accepted as a request name, because
+several names can share one server model ID. A request whose <code dir="auto">model</code> names
+nothing gets 404 <code dir="auto">unknown_model_profile</code> with <code dir="auto">param: "model"</code>; the message says
+which name to send. For a token that also has <code dir="auto">models:read</code>,
+<code dir="auto">error.poundlock.did_you_mean</code> lists up to five names, exact server model ID
+matches first (<code dir="auto">reason: "server_model_id"</code>). The status and code do not change;
+see <code dir="auto">docs/reference/fixtures/unknown-model-profile-error.json</code>.</p>
+<p>Testing a server or listing its model IDs only confirms what it reports; it
+publishes nothing. Clients see a model once you add it in <strong>Models</strong>, where each
+model shows both strings with a copy button: the model name clients send and the
+server model ID. Each advertised profile includes <code dir="auto">poundlock.endpoint_kind</code>
+(<code dir="auto">openai</code> or <code dir="auto">litellm</code>). This identifies the configured adapter, not whether the
+model is local, paid, more capable, or eligible for escalation. It also includes
+<code dir="auto">poundlock.routing_revision</code>, a stable hash of the Poundlock-known route and
+policy. Preserve an approval only while the profile ID and revision still match.
+Resaving a profile or endpoint deliberately changes the revision. After changing
+a route only inside LiteLLM, revalidate and resave the Poundlock profile because
+Poundlock cannot detect that internal change.</p>
+<p>Call authenticated <code dir="auto">GET /api/v1/capabilities</code> before relying on optional
+features. Contract revision 5 adds <code dir="auto">capacity_queue</code> (see “When a model is busy”). Revision 4 advertises <code dir="auto">verifier_toolchain</code> (CPython series,
+uv, and writable exec paths on the worker/verifier image), <code dir="auto">capability_evidence</code>
+(measured capability evidence on <code dir="auto">/v1/models</code> and job-options rows; see below),
+<code dir="auto">reasoning_levels</code>, <code dir="auto">route_catalog</code> and <code dir="auto">model_status</code> (ADR 0003),
+and explicit availability reasons, access preflight, external permission,
+managed application identities, and usage summary support. The application
+OpenAPI document is available at <code dir="auto">/api/openapi.yaml</code>. Clients must tolerate
+additive fields and should show an actionable incompatibility when a required
+feature is absent.</p>
+<p>Exclusive interactive and durable
+profiles also include <code dir="auto">busy</code> and <code dir="auto">occupancy</code> (<code dir="auto">kind</code> is <code dir="auto">interactive</code>, <code dir="auto">job</code>, or
+null, plus the machine and runtime slot) so a client can pick another profile
+instead of retrying a busy slot. Those fields do not include endpoint URLs, API
+keys, or operator overview data.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="when-a-model-is-busy">When a model is busy</h3><a class="sl-anchor-link" href="#when-a-model-is-busy"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “When a model is busy”</span></a></div>
+<p>Profiles that share an exclusive slot run one request at a time. A request for a
+busy slot waits in line instead of failing (contract revision 5, feature
+<code dir="auto">capacity_queue</code>):</p>
+<ul>
+<li><code dir="auto">Poundlock-Wait: &lt;seconds&gt;</code> holds the request for up to 110 s. Without the
+header it waits <code dir="auto">POUNDLOCK_CAPACITY_DEFAULT_WAIT_SECONDS</code> (default 110; 0
+answers at once).</li>
+<li><code dir="auto">Poundlock-Priority</code> orders the line: <code dir="auto">owner</code>, <code dir="auto">planner</code>, <code dir="auto">worker</code> or
+<code dir="auto">background</code>. <code dir="auto">owner</code> and <code dir="auto">planner</code> need the token’s <code dir="auto">inference:priority</code>
+permission; a token with that permission that names no priority waits as
+<code dir="auto">owner</code>. A waiter rises one class a minute, and a <code dir="auto">Poundlock-Session</code> that
+just released the slot comes back first for 10 s, which keeps its prompt cache
+warm.</li>
+<li>A wait that runs out answers HTTP 409 <code dir="auto">capacity_in_use</code> with <code dir="auto">queue</code>
+(<code dir="auto">position</code>, 1 is next; <code dir="auto">holder_kind</code>; <code dir="auto">waiting</code>; and a <code dir="auto">ticket</code>). Send the
+same request again with <code dir="auto">Poundlock-Queue-Ticket</code> within 60 s to keep its place.</li>
+<li>A streamed request with neither <code dir="auto">Poundlock-Wait</code> nor a ticket, such as one from
+Open WebUI, gets its event stream at once and waits on it for up to 10 minutes,
+with an SSE comment every 15 s, then streams its answer.</li>
+<li>At most 16 requests wait per slot and 4 per token; beyond that the answer is
+HTTP 429 <code dir="auto">capacity_queue_full</code>.</li>
+</ul>
+<p><code dir="auto">GET /v1/capacity</code> (<code dir="auto">models:read</code>) lists each held or waited-on slot: its model
+names, who holds it, and who waits, by class. Durable jobs wait in the same line.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="inference-destination-and-client-compatibility">Inference destination and client compatibility</h3><a class="sl-anchor-link" href="#inference-destination-and-client-compatibility"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Inference destination and client compatibility”</span></a></div>
+<p>Where prompts go is the operator’s declaration, never inferred. A model server
+declares it once, in <strong>Connections</strong> (or the first time a model is added to it),
+and every model on it inherits it. A gateway declares it for each route when the
+route is published, because one gateway can send some routes to local models and
+others to external services. Application tokens receive each model’s destination
+as <code dir="auto">poundlock.data_destination</code> on <code dir="auto">/v1/models</code> and <code dir="auto">data_destination</code> on durable
+<code dir="auto">/api/v1/job-options</code> rows:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">unknown</code></td>
+<td>Destination has not been confirmed; the default for new and upgraded profiles.</td>
+</tr>
+<tr>
+<td><code dir="auto">operator_network</code></td>
+<td>Prompts are processed within the operator’s controlled machines/network, which may include multiple hosts.</td>
+</tr>
+<tr>
+<td><code dir="auto">external</code></td>
+<td>Prompts are sent to a service or network outside that boundary.</td>
+</tr>
+</tbody>
+</table>
+<p>This declaration does not enforce routing, certify a gateway’s configuration or
+authorize disclosure. If fallback can leave the controlled network, declare
+<code dir="auto">external</code>; if the route cannot be confirmed, use <code dir="auto">unknown</code>. Unknown profiles
+remain visible for repair but cannot be invoked or submitted until the operator
+confirms their destination.</p>
+<p>In the administration API, a model server’s endpoint carries <code dir="auto">data_destination</code>
+(set it on create or with PATCH, alone or with other changes), and each model
+reports <code dir="auto">data_destination_source</code>: <code dir="auto">endpoint</code> when it inherits its server’s,
+<code dir="auto">profile</code> when it carries its own. A model on a model server may restate its
+server’s value but not contradict it; the first model on a server nobody has
+declared declares it. Declaring a server applies to every model on it.</p>
+<p>Recheck declarations after upstream routing changes. A new address or adapter
+makes an endpoint’s destination <code dir="auto">unknown</code> until it is declared again, which the
+same save may do; rotating its credential does not, because it changes neither
+where data goes nor how it gets there. An API edit that would change where a
+model’s prompts go without saying so, such as moving it to a server that
+declares otherwise or re-pointing a gateway route, must state <code dir="auto">data_destination</code>
+in the same request, or it is refused with 400. The declaration never silently
+becomes <code dir="auto">unknown</code> and takes the profile offline, and the console says when an
+edit needs a new one.</p>
+<p>A database upgraded from an earlier release keeps every model’s destination.
+A model server whose live models all declared the same destination declares it
+from then on, and they inherit it. Where they disagreed, the server stays
+undeclared and each model keeps its own until the operator declares the server.</p>
+<p>The pre-release <code dir="auto">leaves_this_computer</code> field was removed because gateway type
+cannot establish that fact. Clients must treat an absent or unrecognized
+destination as unknown, not local. Use profile IDs to collapse aliases, keep
+explicit user role choices, and require approved policy before changing models
+or sending source to an external destination. Model names are not capabilities.
+Testing a server or listing its models still publishes nothing.</p>
+<p>Profiles remain in discovery when an application cannot currently use them.
+Read <code dir="auto">availability</code> and <code dir="auto">availability_reason</code> (also present inside <code dir="auto">poundlock</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Availability</th>
+<th>Client behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">available</code></td>
+<td>Policy prerequisites are satisfied; admission can still race.</td>
+</tr>
+<tr>
+<td><code dir="auto">preparation_required</code></td>
+<td>Call access preflight before starting the operation.</td>
+</tr>
+<tr>
+<td><code dir="auto">busy</code></td>
+<td>Wait, poll, or make an explicitly approved selection.</td>
+</tr>
+<tr>
+<td><code dir="auto">blocked</code></td>
+<td>Show <code dir="auto">blocked_reason</code>; do not retry or reroute silently.</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="thinking-default">Thinking default</h3><a class="sl-anchor-link" href="#thinking-default"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Thinking default”</span></a></div>
+<p>In Models, <strong>Thinking</strong> (under Advanced) records the operator’s default reasoning
+setting for each model profile: <code dir="auto">model_default</code> (send nothing; the model’s own
+default applies) or <code dir="auto">off</code>. A new model on a machine’s <code dir="auto">llamacpp</code> runtime starts
+at <code dir="auto">off</code>, and any other at <code dir="auto">model_default</code>. Application tokens receive
+<code dir="auto">poundlock.thinking</code> on <code dir="auto">/v1/models</code> and <code dir="auto">thinking</code> on durable
+<code dir="auto">/api/v1/job-options</code> rows.</p>
+<p>A profile whose thinking default is <code dir="auto">off</code> is meant for local reasoning models
+(for example Qwen 3.5/3.6 on Ollama or llama.cpp) that think unless the request
+carries <code dir="auto">reasoning_effort: "none"</code>. For that profile, Poundlock’s relay injects
+<code dir="auto">"reasoning_effort": "none"</code> into interactive <code dir="auto">/v1/chat/completions</code> requests
+whose body does not already set <code dir="auto">reasoning_effort</code>, a <code dir="auto">reasoning</code> object, or
+<code dir="auto">chat_template_kwargs.enable_thinking</code>. It never overrides an explicit client
+value, so a client can still force thinking on for a single request. It applies
+to chat completions only; the fast-completion <code dir="auto">/v1/completions</code> path is left
+untouched. (A llama.cpp profile does this differently; see below.) Durable jobs
+reach the model through the controller’s job-scoped proxy, which applies the same
+default.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="llamacpp-profiles">llama.cpp profiles</h4><a class="sl-anchor-link" href="#llamacpp-profiles"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “llama.cpp profiles”</span></a></div>
+<p>llama-server keeps its own thinking default, and that default beats a top-level
+<code dir="auto">reasoning_effort</code>: the level is accepted and does nothing. Only the request’s
+<code dir="auto">chat_template_kwargs</code> switches thinking. So for a profile on the <code dir="auto">llamacpp</code>
+node runtime (the name the node configuration gives it, <code dir="auto">[runtimes.llamacpp]</code>),
+the relay carries the choice there. It translates the choice and never changes
+it: the level the client names is the level the template receives. Keys the
+client already put in <code dir="auto">chat_template_kwargs</code> are never replaced, and a client
+that sets <code dir="auto">enable_thinking</code> itself is left as sent.</p>
+<table>
+<thead>
+<tr>
+<th>Level in the request</th>
+<th>Profile thinking</th>
+<th>Sent to llama.cpp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">none</code></td>
+<td>any</td>
+<td><code dir="auto">chat_template_kwargs: {enable_thinking: false}</code></td>
+</tr>
+<tr>
+<td><code dir="auto">minimal</code>, <code dir="auto">low</code>, <code dir="auto">medium</code>, <code dir="auto">high</code>, <code dir="auto">xhigh</code></td>
+<td>any</td>
+<td><code dir="auto">{enable_thinking: true, reasoning_effort: &lt;level&gt;}</code></td>
+</tr>
+<tr>
+<td>none named</td>
+<td><code dir="auto">off</code></td>
+<td><code dir="auto">{enable_thinking: false}</code></td>
+</tr>
+<tr>
+<td>none named</td>
+<td><code dir="auto">model_default</code></td>
+<td>nothing; the server’s default applies</td>
+</tr>
+</tbody>
+</table>
+<p>Durable jobs and the reasoning probe use the same rule. Every other runtime is
+unchanged.</p>
+<p>A request to a llama.cpp profile may also carry <code dir="auto">thinking_budget_tokens</code>, a
+whole number from 1 to the profile’s <code dir="auto">max_output_tokens</code>, which llama.cpp uses to
+end reasoning early. The reasoning text shares the output limit with the answer,
+so a budget at or near the limit bounds nothing. A value outside that range is
+refused with <code dir="auto">invalid_thinking_budget</code>, and any other profile refuses the field
+by name as before. <code dir="auto">poundlock.reasoning.thinking_budget_tokens</code> on <code dir="auto">/v1/models</code>
+(<code dir="auto">max</code> and <code dir="auto">default</code>) appears only on llama.cpp profiles. An operator can set
+<code dir="auto">thinking_budget_tokens</code> on the profile through the admin API
+(<code dir="auto">PATCH /api/v1/model-profiles/{id}</code>; <code dir="auto">null</code> clears it). It fills in for a request
+that turns thinking on and names no budget of its own, and it never applies when
+thinking is off.</p>
+<p>Verifying a level (<code dir="auto">verify-reasoning</code>) needs to see reasoning. llama.cpp builds
+that report no reasoning-token count are read from the returned
+<code dir="auto">reasoning_content</code> instead: each result carries <code dir="auto">reasoning_chars</code>, the number of
+characters of reasoning text (characters, not tokens), and a level is verified
+when thinking is on and text comes back, or off and none does. Profiles on other
+runtimes are verified only from a reported token count, as before.</p>
+<p>Requests are checked against the options Poundlock understands, and an unknown
+key is refused by name (<code dir="auto">unsupported inference option: &lt;key&gt;</code>). For a profile
+whose <code dir="auto">data_destination</code> is <code dir="auto">operator_network</code>, the local-runtime controls
+<code dir="auto">chat_template_kwargs</code>, <code dir="auto">top_k</code>, <code dir="auto">min_p</code> and <code dir="auto">repeat_penalty</code> are also accepted,
+on both the interactive relay and durable jobs. Hosted APIs generally reject
+them, so they are refused for any other destination.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="capability-evidence">Capability evidence</h3><a class="sl-anchor-link" href="#capability-evidence"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Capability evidence”</span></a></div>
+<p>In Models, the profile editor’s Advanced section lets an operator paste a JSON block of
+measured capability evidence for a profile. Make it from
+<a href="https://github.com/endthestart/poundlock-toolkit">Poundlock Toolkit</a> 0.5.0 or later
+results:</p>
+<div class="expressive-code"><link rel="stylesheet" href="/poundlock-site/_astro/ec.w36nc.css"><script type="module" src="/poundlock-site/_astro/ec.0vx5m.js"></script><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">poundlock-toolkit</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">recommend</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--format</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">json</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">run.json</span><span style="--0:#D6DEEB;--1:#403F53"> [more </span><span style="--0:#ECC48D;--1:#3B61B0">runs]</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--output</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">summary.json</span></div></div><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">python3</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-m</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">pip</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">install</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">jsonschema&gt;=4.23,&lt;5</span><span style="--0:#D9F5DD;--1:#111111">'</span></div></div><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">python3</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">scripts/toolkit-capabilities.py</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">summary.json</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#7FDBCA;--1:#096E72">&gt;</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">block.json</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="poundlock-toolkit recommend --format json run.json [more runs] --output summary.jsonpython3 -m pip install &#x27;jsonschema>=4.23,<5&#x27;python3 scripts/toolkit-capabilities.py summary.json > block.json"><div></div></button></div></figure></div>
+<p>The script reads Toolkit’s versioned summary
+(<code dir="auto">urn:poundlock-toolkit:recommendation:1</code>) and does not import Toolkit. It refuses a
+run that sent an explicit reasoning effort, because a profile’s thinking default is
+either the model’s own or off, and a tool-schema run that measured the two APIs with
+different thinking behaviour. <code dir="auto">poundlock.capabilities</code> on <code dir="auto">/v1/models</code> and <code dir="auto">capabilities</code> on
+durable <code dir="auto">/api/v1/job-options</code> rows carry the list. Each entry names one of
+<code dir="auto">code_repair_verified</code>, <code dir="auto">plan_tool_schema</code> or <code dir="auto">sealed_investigation</code>, a
+<code dir="auto">status</code> (<code dir="auto">qualified</code>, <code dir="auto">smoke</code> or <code dir="auto">insufficient</code>), <code dir="auto">passed</code>/<code dir="auto">attempted</code>
+counts, and the settings it was measured under. <strong>Evidence is measured, never
+inferred: an empty list means unknown, not incapable.</strong> There is no ingest
+endpoint; scoring stays in the Toolkit, and Poundlock only stores and
+republishes what it is given.</p>
+<p><code dir="auto">/v1/models</code> augments each entry at read time with three fields Poundlock
+never stores: <code dir="auto">age_days</code>, <code dir="auto">stale</code> (measured more than 30 days ago, mirroring
+the Toolkit’s own freshness rule) and <code dir="auto">settings_match</code> (<code dir="auto">exact</code> or
+<code dir="auto">different</code>, comparing <code dir="auto">measured_settings.context_tokens</code> and reasoning
+against the profile’s live <code dir="auto">context_tokens</code> and <code dir="auto">thinking</code>). Treat a stale or
+settings-mismatched entry as evidence about a configuration that may no
+longer be this one, not as a current guarantee. Patching a profile’s
+<code dir="auto">context_tokens</code> or <code dir="auto">thinking</code> drops every measurement whose recorded
+settings no longer match, for the same reason changing a route rotates
+<code dir="auto">routing_revision</code>: the measurement described a configuration that no longer
+exists.</p>
+<p>Known blocked reasons include <code dir="auto">external_permission_required</code>,
+<code dir="auto">data_destination_confirmation_required</code>,
+<code dir="auto">managed_budget_required</code>, <code dir="auto">managed_identity_provision_failed</code>, and
+<code dir="auto">managed_identity_reconciliation_required</code>. An external profile requires both
+the ordinary operation permission and <code dir="auto">external:invoke</code>.</p>
+<p>Access preflight checks credentials and policy first. When those pass, an
+inference preflight also reports the node/runtime state that admission would
+hit: <code dir="auto">runtime_node_missing</code>, <code dir="auto">runtime_node_unavailable</code> (paused or removed),
+<code dir="auto">runtime_node_network_unavailable</code>, <code dir="auto">runtime_node_offline</code> (the machine is
+asleep and the model is set not to wake it) and <code dir="auto">runtime_wake_unavailable</code> are
+blocked reasons. Conditions the
+relay resolves by itself do not change <code dir="auto">availability</code>, so existing clients keep
+working: a node that will be woken on demand adds <code dir="auto">runtime_state: "preparation_required"</code> with <code dir="auto">runtime_reason: "runtime_wake_required"</code>, and an
+occupied exclusive slot adds <code dir="auto">capacity: "in_use"</code> with <code dir="auto">capacity_reason: "capacity_in_use"</code> (the request then waits in line; see “When a model is
+busy”). Job preflight never reports slot occupancy, because durable jobs
+queue. A job preflight adds <code dir="auto">runner_status</code>
+(<code dir="auto">connected</code> or <code dir="auto">not_seen</code>) and warns <code dir="auto">runner_not_connected</code> when no runner has
+contacted the controller recently; queued jobs still wait for one. Failed
+interactive requests use the same <code dir="auto">runtime_*</code> codes when runtime preparation
+fails, so clients can tell an unavailable machine from missing credentials or
+a busy model. Interactive responses carry <code dir="auto">x-poundlock-request-id</code>, which
+matches controller diagnostics for that request.</p>
+<p><code dir="auto">GET /readyz</code> reports controller/storage readiness only (<code dir="auto">"scope": "controller_storage"</code>): the controller is serving and its database answers.
+It does not prove that a runner, node, endpoint, model or credential is usable;
+use access preflight and job options for those.</p>
+<p><code dir="auto">busy</code> only reports a current Poundlock-managed exclusive-slot claim. <code dir="auto">false</code>
+does not prove an endpoint is online, a model is loaded or a slot is reserved.
+Profiles without an exclusive slot have no managed busyness measurement.
+<code dir="auto">occupancy.slot</code> names the exclusive slot a profile competes for
+(<code dir="auto">&lt;node_id&gt;/&lt;runtime_profile&gt;</code>), or is <code dir="auto">null</code> when it has none. Profiles with
+the same <code dir="auto">slot</code> run one at a time across all their names and aliases, and
+switching between two of them loads a different model. State can
+change after discovery: an interactive request waits in line and can still end
+with HTTP 409 <code dir="auto">capacity_in_use</code> when its wait runs out; durable jobs wait in the
+same line. Handle these outcomes
+without duplicate submissions or unauthorized fallback. Poll without spending
+model reasoning tokens. Job APIs require their jobs permissions independently
+of <code dir="auto">models:read</code>; application tokens cannot access operator configuration.</p>
+<p>When a LiteLLM endpoint uses per-application identities, <code dir="auto">POST /api/v1/access/preflight</code> prepares access without inference and <code dir="auto">GET /api/v1/usage</code>
+returns that application token’s configured gateway policy and safe usage
+summary. It never returns gateway or provider keys. A gateway can report usage
+as unavailable without making model discovery unavailable.</p>
+<p>For Zed, configure Agent/Inline Assistant separately from Edit Prediction. See
+<a href="https://zed.dev/docs/ai/use-api-access">Zed’s API provider guide</a> and
+<a href="https://zed.dev/docs/ai/edit-prediction">Edit Prediction</a>. A starting configuration
+is in <code dir="auto">config/examples/zed-openai-provider.json</code> in the source repository.</p>
+<p>An on-demand profile may wait while a node wakes and loads its model. Configure
+client timeouts accordingly. Use durable jobs when work must continue after the
+client disconnects; an interactive HTTP stream is not a durable job.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="directing-durable-coding-work">Directing durable coding work</h2><a class="sl-anchor-link" href="#directing-durable-coding-work"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Directing durable coding work”</span></a></div>
+<p>An orchestrator can submit a prompt, source and verification policy through
+<code dir="auto">POST /api/v1/jobs</code>, poll the returned job ID, download its patch and review the
+result. It can then submit another job with reviewed source and a new prompt.
+It does not need Docker access or knowledge of node addresses.</p>
+<p>Use a token with <code dir="auto">jobs:submit</code>, <code dir="auto">jobs:read</code>, and optionally <code dir="auto">jobs:cancel</code>.
+<code dir="auto">GET /api/v1/job-options</code> returns usable model profiles, harnesses and policy
+limits. Model choice is supplied in every job. Independent jobs can target
+separate machines concurrently; Poundlock does not automatically split a task or
+merge conflicting patches. The orchestrator owns review and integration.</p>
+<p>See <a href="/poundlock-site/poundlock/jobs/">job API</a> for request examples and error handling.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="optional-acp-adapter">Optional ACP adapter</h2><a class="sl-anchor-link" href="#optional-acp-adapter"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Optional ACP adapter”</span></a></div>
+<p>The native binary includes an experimental ACP adapter. Install Pi 1.1.0 locally
+for attached execution, then configure an ACP-capable editor to launch:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">poundlock</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">acp</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--controller</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">http://127.0.0.1:7331</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--token-file</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">/absolute/private/path/poundlock-token</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--execution</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">attached</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--model-profile-id</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">coding</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="poundlock acp --controller http://127.0.0.1:7331 \  --token-file /absolute/private/path/poundlock-token \  --execution attached --model-profile-id coding"><div></div></button></div></figure></div>
+<p>The editor supplies a working directory. Attached mode runs Pi’s file and shell
+tools with your local user privileges and sends inference through Poundlock.
+It is not containerized and does not upload the workspace. Cancellation stops
+the process group owned by that turn. Keep the token file private.</p>
+<p>Attached Pi trusts nothing the repository ships: it runs with project trust set
+to <code dir="auto">never</code> and <code dir="auto">--no-approve</code>, and loads no extensions, skills, prompt templates
+or context files, so a repository’s <code dir="auto">.pi</code> directory never runs code. Poundlock
+still passes <code dir="auto">AGENTS.md</code> and configured instruction files to the model as text.
+Pi inherits only <code dir="auto">PATH</code>, <code dir="auto">LANG</code>, <code dir="auto">TERM</code>, <code dir="auto">TMPDIR</code> and <code dir="auto">NODE_EXTRA_CA_CERTS</code> from
+your environment; tokens and other secrets in your shell stay behind.</p>
+<p><code dir="auto">--execution delegated --project-id PROJECT_ID</code> submits a durable job against an
+operator-registered server repository. For uploaded files or read-only HTTPS
+checkout, use the ordinary job API or web UI instead.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="models-and-execution-profiles">Models and execution profiles</h2><a class="sl-anchor-link" href="#models-and-execution-profiles"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Models and execution profiles”</span></a></div>
+<p>A profile is a request configuration, not necessarily a distinct model. One
+configured model can have interactive and durable profiles with different limits.
+Models → Ready groups profiles by machine or gateway; this is
+configured routing identity, not a claim that a model is loaded or qualified.</p>
+<p><code dir="auto">poundlock.model_label</code> on <code dir="auto">/v1/models</code> and <code dir="auto">model_label</code> on job-options rows is
+an optional operator-declared display string, such as a model family, size and
+quantization. Null means unspecified. It is not verified runtime identity, a
+capability rating, or a request identifier. Continue routing with the canonical
+profile name (interactive) or profile UUID (durable); <code dir="auto">upstream_model</code> remains
+the exact upstream routing ID and can itself be an alias.</p>
+<p>Create accepts <code dir="auto">model_label</code>; PATCH omission preserves it, null clears it. Labels
+are limited to 256 UTF-8 bytes with no control characters. Changing the profile
+route without a new declaration clears the label. Endpoint route or credential
+changes also clear labels and reset destinations to unknown. Operators must
+refresh declarations when an upstream alias changes its target outside Poundlock.</p>
+<p>Renaming a profile preserves its UUID but can break consumers using its old
+name. Inventory consumers, migrate saved bindings, and remove compatibility
+aliases only after verification. Clients should collapse aliases using
+<code dir="auto">poundlock.profile_id</code>, preserve user role choices, and never infer destination,
+readiness or performance from a model name. Toolkit qualification evidence is
+published separately as <code dir="auto">poundlock.capabilities</code> (see Capability evidence,
+above); Poundlock still does not publish measured speed or quality scores.</p>
+<p>Discovery returns one row per canonical profile. Compatibility aliases remain in
+<code dir="auto">poundlock.aliases</code> and continue to work as request names, but no longer appear
+as duplicate <code dir="auto">/v1/models</code> rows. When refreshing a saved alias binding, match it
+against that metadata and retain the stable profile UUID.</p>
+</div><footer class="sl-flex astro-ddtxxk7k"><div class="meta sl-flex astro-ddtxxk7k"><a href="https://github.com/endthestart/poundlock/edit/main/docs/guide/integrations.md" class="sl-flex print:hidden astro-qlekgd3o"><svg aria-hidden="true" class="astro-qlekgd3o astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;"><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Edit page</a></div><div class="pagination-links print:hidden astro-b5raizh3" dir="ltr"><a href="/poundlock-site/poundlock/machines/" rel="prev" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-b5raizh3">Previous<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">Inference machines</span></span></a><a href="/poundlock-site/poundlock/jobs/" rel="next" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-b5raizh3">Next<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">Submit a durable job</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>
