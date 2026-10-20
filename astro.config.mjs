@@ -18,6 +18,7 @@ export default defineConfig({
           label: "Start here",
           items: [
             { label: "What this is", link: "/" },
+            { slug: "why" },
             { slug: "how-it-fits" },
             { slug: "compare" },
           ],
