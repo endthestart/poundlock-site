@@ -8,8 +8,9 @@ a front page, a few pages about how the projects fit together, and the guides fr
 
 The guides live in those repositories, not here. `scripts/sync-docs.mjs` copies them
 in at build time, so fix a guide where it lives and rebuild. Pages written for the site
-itself are in `src/content/docs`. The built site is published from the `gh-pages`
-branch; a GitHub Actions workflow that rebuilds it daily will replace that.
+itself are in `src/content/docs`. `.github/workflows/deploy.yml` builds and publishes
+the site to GitHub Pages on every push to `main` and once a day, so a guide changed in a
+product repository reaches the site within a day.
 
 ```sh
 npm ci
