@@ -27,8 +27,11 @@ const products = [
       ["docs/guide/operations.md", "poundlock/operations.md", { order: 6 }],
       ["docs/linux-node.md", "poundlock/linux-node.md", { order: 7 }],
       ["docs/node-update-signing.md", "poundlock/node-update-signing.md", { order: 8 }],
+      // Optional pages are synced when the branch has them: GitHub main has no admin CLI guide
+      // until the next release, and Gitea main has no ROADMAP.md (UX audit, 30 Oct).
+      ["docs/guide/admin-cli.md", "poundlock/admin-cli.md", { order: 8.5, optional: true }],
       ["CHANGELOG.md", "poundlock/changelog.md", { title: "Poundlock changelog", label: "Changelog", order: 9 }],
-      ["ROADMAP.md", "roadmap.md", { title: "Roadmap" }],
+      ["ROADMAP.md", "roadmap.md", { title: "Roadmap", optional: true }],
     ],
   },
   {
@@ -74,7 +77,8 @@ const products = [
 const sitePath = new Map();
 for (const product of products)
   for (const [source, target] of product.pages)
-    sitePath.set(`${product.repo}:${source}`, `${BASE}/${target.replace(/(index)?\.md$/, "")}`);
+    if (existsSync(join(product.root, source)))
+      sitePath.set(`${product.repo}:${source}`, `${BASE}/${target.replace(/(index)?\.md$/, "")}`);
 
 function rewrite(target, product, source) {
   if (/^([a-z]+:|#|\/)/i.test(target)) return target;
@@ -132,7 +136,10 @@ for (const product of products) {
   if (!existsSync(product.root)) throw new Error(`${product.repo} not found at ${product.root}`);
   for (const [source, target, meta] of product.pages) {
     const from = join(product.root, source);
-    if (!existsSync(from)) throw new Error(`${product.repo}/${source} is missing`);
+    if (!existsSync(from)) {
+      if (meta.optional) continue;
+      throw new Error(`${product.repo}/${source} is missing`);
+    }
     const to = join(OUT, target);
     mkdirSync(dirname(to), { recursive: true });
     writeFileSync(to, convert(readFileSync(from, "utf8"), product, source, meta));

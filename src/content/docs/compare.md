@@ -9,7 +9,7 @@ good projects overlap with part of that, and some of them do their part better.
 
 | | Several machines, one endpoint | Token per application | Busy model waits | Wakes sleeping machines | Durable coding jobs | Paid API routing |
 |---|---|---|---|---|---|---|
-| **Poundlock** | yes | scoped permissions | queue, held streams | Wake-on-LAN | yes | External profiles, optional LiteLLM budgets |
+| **Poundlock** | yes | scoped permissions | queue, held streams | Wake-on-LAN | yes | External models, optional LiteLLM budgets |
 | [LiteLLM](https://github.com/BerriAI/litellm) | yes | virtual keys, budgets | priority scheduler | no | no | 100+ providers |
 | [llama-swap](https://github.com/mostlygeek/llama-swap) | no | API keys | no | no | no | no |
 | [Ollama](https://github.com/ollama/ollama) | no | no | queue (one machine) | no | no | Ollama cloud models |
